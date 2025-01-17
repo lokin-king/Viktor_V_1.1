@@ -11,13 +11,14 @@ def recognize_speech():
             audio = recognizer.listen(source)
 
         command = recognizer.recognize_google(audio, language="uk-ua")
-        speak(CHAT_GPT(command))
+        speak(Olama(command))
         return command
 
     except sr.UnknownValueError:
          speak("Вибачте, я не зрозумив.")
     except sr.RequestError as e:
          speak(f"Помилка сервера: {e}")
+
 
 if __name__ == "__main__":
     recognize_speech()

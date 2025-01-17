@@ -3,6 +3,12 @@ import pygame
 from gtts import gTTS
 from os import remove
 from g4f.client import Client
+from langchain_ollama import OllamaLLM
+
+def Olama(TEXT:str):
+    model = OllamaLLM(model="llama3.1")
+    response = model.invoke(input=TEXT)
+    return response
 
 
 def speak(text):
